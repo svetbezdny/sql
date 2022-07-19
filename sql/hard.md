@@ -212,12 +212,12 @@
 		 and t_in.check_time::date = t_out.check_time::date
 		)
 	select 
-      employee,
-      check_date,
-      sum
+	  employee,
+	  check_date,
+	  sum
 	from final
 	where time_diff < 8 * 60 * 60
-		order by sum
+	order by sum
 ```
 
 |employee |   check_date |   sum  |      
