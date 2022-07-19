@@ -165,10 +165,10 @@
 	  cnt 
 	from 
 	   (select 
-		  to_char(ord_datetime, 'yyyy') as year,
-		  ord_an as an_id,
-		  count(1) as cnt,
-		  dense_rank() over (partition by to_char(ord_datetime, 'yyyy') order by count(1) desc) as rnk
+		 to_char(ord_datetime, 'yyyy') as year,
+		 ord_an as an_id,
+		 count(1) as cnt,
+		 dense_rank() over (partition by to_char(ord_datetime, 'yyyy') order by count(1) desc) as rnk
 		from orders o
 		group by 1, 2
 		order by 1, 4
