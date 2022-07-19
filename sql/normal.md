@@ -219,7 +219,7 @@
 		)
 	select 
 	  row_number() over() as seat, 
-      name
+	  name
 	from t2 
 ```
 	

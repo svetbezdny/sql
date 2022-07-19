@@ -185,7 +185,7 @@
 ```sql
 	select
 	  ord_an as an_id,
-	count(ord_id) as cnt
+	  count(ord_id) as cnt
 	from orders
 	group by 1
 	order by 2 desc
