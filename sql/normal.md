@@ -9,7 +9,7 @@
 	from purchases p
 	join customer c on p.user_id = c.id_customer
 	where sku_id in (select id from skus where category = 2)
-					and town = 'Tula'
+	 and town = 'Tula'
 	group by 1
 	order by 2 desc 
 ```
@@ -58,7 +58,7 @@
 		join analysis a on o.ord_an = a.an_id
 		join groups g on a.an_group = g.gr_id
 		group by 1, 2, 3
-			)
+		)
 	select 
 	  year, 
 	  month, 
@@ -85,7 +85,7 @@
 		and (an_name ~~* '%кров%' or an_name ~~* '%тестостерон%')
 		group by 1, 2
 		order by 1, 2
-			)
+		)
 	select 
 	  name,
 	  month,
@@ -126,7 +126,7 @@
 		from orders
 		group by 1, 2
 		order by 1, 2
-			)
+		)
 	select 
 	  *,
 	  case when prev_cnt < prev2_cnt and cur_cnt < prev_cnt then 1 else 0 end as result
@@ -147,7 +147,7 @@
 		join analysis a on o.ord_an = a.an_id
 		group by 1
 		order by 1
-			)
+		)
 	select 
 	  avg(mi) as avg_cheap, 
 	  avg(ma) as avg_exp
@@ -173,8 +173,8 @@
 		group by 1, 2
 		order by 1, 4
 		) foo
-  where rnk = 1
-  order by 1, 2
+	where rnk = 1
+	order by 1, 2
 ```
 
 ## Третий анализ по количеству продаж
@@ -191,7 +191,7 @@
 		from orders o
 		join analysis a on o.ord_an = a.an_id
 		group by 1, 2
-			)
+		)
 	select * from t 
 	where rn = 3
 ```
@@ -207,7 +207,7 @@
 		  name,
 		  ntile(8) over(order by seat) as n
 		from students s
-			),
+		),
 	t2 as (
 		select 
 		  seat, 
@@ -249,10 +249,10 @@
 	select 
 	  salary 
 	from 
-		(select 
-		  salary,
-		  rank() over (order by salary desc) as rnk
-		from employee
-		) foo
-	where rnk = 2 
+	  (select 
+	    salary,
+		rank() over (order by salary desc) as rnk
+	   from employee
+	  ) foo
+	where rnk = 2
 ```
