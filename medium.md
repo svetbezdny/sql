@@ -54,9 +54,9 @@
 	select 
 	  *,
 	  case when amount > 20 then 2
-	       when amount > 10 then 1
-           else 0 
-           end as gr
+			when amount > 10 then 1
+			else 0 
+			end as gr
 	from t
 	order by an_id
 ```
@@ -348,9 +348,9 @@
 	where id_transaction = (
 		select 
 		  id_transaction 
-		  from transactions
-		  group by id_transaction
-		  having count(id_transaction) > 1
+		from transactions
+		group by id_transaction
+		having count(id_transaction) > 1
 		)
 	order by id_transaction
 ```
