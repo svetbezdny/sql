@@ -54,9 +54,9 @@
 	select 
 	  *,
 	  case when amount > 20 then 2
-			when amount > 10 then 1
-			else 0 
-			end as gr
+		when amount > 10 then 1
+		else 0 
+		end as gr
 	from t
 	order by an_id
 ```
@@ -500,15 +500,15 @@
 		  date as dt,
 		  lag(sum(sum)) over (partition by employee) as lg,
 		  sum(sum) as sm
-		  from transactions
+		from transactions
 		where type = 0
 		group by 1, 2
 		order by 1, 2
-		)
+	)
 	select
 	  *,
 	  round(1.0 * (sm - lg) / lg, 2) as inc
-	from t
+	  from t
 	order by employee, dt
 ```
 
@@ -537,12 +537,12 @@
 		  lead(total) over(order by dt) as ld
 		from t
 		order by id_transaction
-    )
-    select 
+	)
+	select 
 	  id_transaction, 
 	  dt, 
 	  total, 
 	  round((lg + total + ld)/3::numeric, 2) as sliding
-    from t2
-    order by 1
+	  from t2
+	order by 1
 ```
