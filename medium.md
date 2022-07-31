@@ -44,8 +44,8 @@
 ```sql 
 	with t as (
 		select
-          an_id,
-          count(ord_an) as amount
+		  an_id,
+		  count(ord_an) as amount
 		from analysis a
 		join orders o on a.an_id = o.ord_an
 		where ord_datetime::date between '2019-03-01' and '2020-03-01'
@@ -54,11 +54,11 @@
 	select 
 	  *,
 	  case when amount > 20 then 2
-		   when amount > 10 then 1
-		   else 0 
-		   end as gr
-    from t
-    order by an_id
+	       when amount > 10 then 1
+           else 0 
+           end as gr
+	from t
+	order by an_id
 ```
 
 ## Продажи за 2019 и 2020 год
@@ -346,12 +346,12 @@
 	  disc_source
 	from transactions 
 	where id_transaction = (
-			select 
-			  id_transaction 
-			from transactions
-            group by id_transaction
-            having count(id_transaction) > 1
-			)
+		select 
+		  id_transaction 
+		  from transactions
+		  group by id_transaction
+		  having count(id_transaction) > 1
+		)
 	order by id_transaction
 ```
 
@@ -387,13 +387,13 @@
 
 ```sql
 	with t as (
-	  select
-      employee,
-      sum(sum) as summ,
-      dense_rank() over (order by sum(sum) desc) as rnk
-	from transactions
-	where type = 0
-	group by 1
+		select
+		  employee,
+		  sum(sum) as summ,
+		  dense_rank() over (order by sum(sum) desc) as rnk
+		from transactions
+		where type = 0
+		group by 1
 	)
 	select 
 	  employee, 
