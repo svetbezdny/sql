@@ -5,7 +5,7 @@
 
 *Write an SQL query to report the type of each node in the tree.*  
 
-! [node](https://assets.leetcode.com/uploads/2021/10/22/tree1.jpg)     
+![Tree node](https://assets.leetcode.com/uploads/2021/10/22/tree1.jpg?raw=true "Tree Node")     
 
 1. **Create a "tree" table**
 
