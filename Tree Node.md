@@ -1,3 +1,5 @@
+[leetcode.com](https://leetcode.com/problems/tree-node/)  
+
 *Each node in the tree can be one of three types:*  
 **- "Leaf"**: *if the node is a leaf node.*  
 **- "Root"**: *if the node is the root of the tree.*  
