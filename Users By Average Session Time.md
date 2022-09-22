@@ -5,7 +5,7 @@
 *For simplicity, assume a user has only 1 session per day and if there are multiple of the same events on that day, consider only the latest page_load and earliest page_exit.*  
 *Output the user_id and their average session time.*  
   
-**Solution***  
+**Solution**  
 
 ```sql
 with t as (
